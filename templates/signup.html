@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Signup page</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- load stylesheets -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"> <!-- Google web font "Open Sans" -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="/static/css/datepicker.css" />
+    <link rel="stylesheet" type="text/css" href="/static/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="/static/slick/slick-theme.css" />
+    <link rel="stylesheet" href="/static/css/templatemo-style.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+        }
+
+        p {
+            color: #666;
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tm-main-content" id="top">
+        <div class="tm-top-bar-bg"></div>    
+            <div class="tm-top-bar" id="tm-top-bar">
+                <div class="container">
+                    <div class="row">
+                        <nav class="navbar navbar-expand-lg narbar-light">
+                            <a class="navbar-brand mr-auto" href='/index' onclick="window.location.href='/index';">
+                                <img src="/static/img/logo3.png" alt="Site logo">
+                                TM Connect
+                            </a>
+                            <button type="button" id="nav-toggle" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div id="mainNav" class="collapse navbar-collapse tm-bg-white">
+                                <ul class="navbar-nav ml-auto">
+                                  <li class="nav-item">
+                                  <a class="nav-link active" href='/index' onclick="window.location.href='/index';">Home <span class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href='/index#tm-section-2' onclick="window.location.href='/index#tm-section-2';">Top Destinations</a>
+                                </li>
+                                <li class="nav-item">
+
+                                   <a class="nav-link" href='/index#tm-section-3' onclick="window.location.href='/index#tm-section-3';">Recommended Places</a>
+
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href='/index#tm-section-4' onclick="window.location.href='/index#tm-section-4';">Contact Us</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a class="nav-link" href='/login' onclick="window.location.href='/login';">Login</a>
+                                </li>
+
+                                <li class="nav-item">
+                                  <a class="nav-link" href='/signup' onclick="window.location.href='/signup';">Signup</a>
+                                </li>
+                            </ul>
+                        </div>                            
+                    </nav>
+                </div> <!-- row -->
+            </div> <!-- container -->
+        </div> <!-- .tm-top-bar -->
+
+        <div class="container bootstrap snippet">
+            <div class="row">
+                <div class="col-sm-3">
+                    <!--left col-->
+
+                    <div class="text-center">
+                        <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png"
+                            class="avatar img-circle img-thumbnail" alt="avatar">
+                        <h6>Upload a different photo...</h6>
+                        <input type="file" class="text-center center-block file-upload">
+                    </div>
+                    <br>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Website <i class="fa fa-link fa-1x"></i></div>
+                        <div class="panel-body"><a href="http://bootnipets.com">bootnipets.com</a></div>
+                    </div>
+
+                    <ul class="list-group">
+                        <li class="list-group-item text-muted">Activity <i class="fa fa-dashboard fa-1x"></i></li>
+                        <li class="list-group-item text-right"><span class="pull-left"><strong>Shares</strong></span>
+                            125</li>
+                        <li class="list-group-item text-right"><span class="pull-left"><strong>Likes</strong></span>
+                            13</li>
+                        <li class="list-group-item text-right"><span class="pull-left"><strong>Posts</strong></span>
+                            37</li>
+                        <li class="list-group-item text-right"><span class="pull-left"><strong>Followers</strong></span>
+                            78</li>
+                    </ul>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Social Media</div>
+                        <div class="panel-body">
+                            <i class="fa fa-facebook fa-2x"></i> <i class="fa fa-github fa-2x"></i> <i
+                                class="fa fa-twitter fa-2x"></i> <i class="fa fa-pinterest fa-2x"></i> <i
+                                class="fa fa-google-plus fa-2x"></i>
+                        </div>
+                    </div>
+                </div>
+                <!--/col-3-->
+                <div class="col-sm-9">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="home">
+                            <form class="form" action="##" method="post" id="registrationForm">
+                                <div class="form-group">
+                                    <div class="col-xs-6">
+                                        <label for="first_name">
+                                            <h5>First name</h5>
+                                        </label>
+                                        <input type="text" class="form-control" name="first_name" id="first_name"
+                                            placeholder="first name" title="enter your first name if any.">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-6">
+                                        <label for="last_name">
+                                            <h5>Last name</h5>
+                                        </label>
+                                        <input type="text" class="form-control" name="last_name" id="last_name"
+                                            placeholder="last name" title="enter your last name if any.">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-6">
+                                        <label for="phone">
+                                            <h5>Phone number</h5>
+                                        </label>
+                                        <input type="text" class="form-control" name="phone" id="phone"
+                                            placeholder="enter phone" title="enter your phone number if any.">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-6">
+                                        <label for="email">
+                                            <h5>Email</h5>
+                                        </label>
+                                        <input type="email" class="form-control" name="email" id="email"
+                                            placeholder="you@email.com" title="enter your email.">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-6">
+                                        <label for="location">
+                                            <h5>Location</h5>
+                                        </label>
+                                        <input type="text" class="form-control" name="location" id="location"
+                                            placeholder="somewhere" title="enter a location">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-6">
+                                        <label for="password">
+                                            <h5>Password</h5>
+                                        </label>
+                                        <input type="password" class="form-control" name="password" id="password"
+                                            placeholder="password" title="enter your password.">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-6">
+                                        <label for="password2">
+                                            <h5>Verify</h5>
+                                        </label>
+                                        <input type="password" class="form-control" name="password2" id="password2"
+                                            placeholder="password2" title="enter your password2.">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <br>
+                                        <button class="btn btn-lg btn-success" type="submit"><i
+                                                class="glyphicon glyphicon-ok-sign"></i> Save</button>
+                                        <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i>
+                                            Reset</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <!--/tab-pane-->
+                        <div class="tab-pane" id="messages">
+                            <h2></h2>
+                        </div>
+                        <!--/tab-pane-->
+                        <div class="tab-pane" id="settings"></div>
+                        <!--/col-9-->
+                    </div>
+                    <!--/row-->
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+  <footer class="tm-container-outer">
+      <p class="mb-0">Copyright © <span class="tm-current-year">2024</span> TravelMate Connect <a
+              rel="nofollow" href="http://www.google.com/+templatemo" target="_parent"></a></p>
+  </footer>
+</body>
+
+</html>
