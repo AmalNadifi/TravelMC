@@ -18,7 +18,7 @@
 # Final Project Blog Article: The Journey of TravelMate Connect
 
 # Project's GitHub:
-https://github.com/nadiaMahfoud/TravelMate-Connect
+[ttps://github.com/AmalNadifi/TravelMC/tree/master]
 
 # Author(s) LinkedIn:
 - [Nadia Mahfoud] (https://www.linkedin.com/in/nadiamahfoud-nm)
@@ -34,7 +34,7 @@ Embark on your travel journey with TravelMate Connect by following these simple 
 
 bash
 Copy code
-git clone https://github.com/your-username/TravelMateConnect.git
+git clone [https://github.com/AmalNadifi/TravelMC.git]
 2- Navigate to the project directory:
 
 bash
