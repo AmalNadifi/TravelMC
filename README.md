@@ -18,11 +18,11 @@
 # Final Project Blog Article: The Journey of TravelMate Connect
 
 # Project's GitHub:
-[ttps://github.com/AmalNadifi/TravelMC/tree/master]
+[https://github.com/AmalNadifi/TravelMC]
 
 # Author(s) LinkedIn:
 - [Nadia Mahfoud] (https://www.linkedin.com/in/nadiamahfoud-nm)
-- [Amal Nadifi](https://www.linkedin.com/in/Amal Nadifi)
+- [Amal Nadifi](https://www.linkedin.com/in/amal-nadifi-754779158)
 # Author(s) GitHub:
 - Nadia Mahfoud (https://github.com/nadiaMahfoud)
 - Amal Nadifi (https://github.com/AmalNadifi)
