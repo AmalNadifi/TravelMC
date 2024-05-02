@@ -1,85 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>TravelMate Connect</title>
-
-    <!-- load stylesheets -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
-    <!-- Google web font "Open Sans" -->
-    <link rel="stylesheet" href="/static/font-awesome-4.7.0/css/font-awesome.min.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-    <!-- styles -->
-    <link rel="stylesheet" type="text/css" href="/static/css/datepicker.css" />
-    <link rel="stylesheet" type="text/css" href="/static/slick/slick.css" />
-    <link rel="stylesheet" type="text/css" href="/static/slick/slick-theme.css" />
-    <link rel="stylesheet" href="/static/css/templatemo-style.css">
-    <!-- Add your additional styles here -->
-
-    <style>
-        /* Add any additional styles here */
-        #createTripContent {
-            display: none;
-        }
-    </style>
-</head>
-  
-<body>
-  <div class="tm-main-content" id="top">
-      <div class="tm-top-bar-bg"></div>    
-      <div class="tm-top-bar" id="tm-top-bar">
-        <div class="container">
-            <div class="row">
-                <nav class="navbar navbar-expand-lg narbar-light">
-                    <a class="navbar-brand mr-auto" href='/index' onclick="window.location.href='/index';">
-                        <img src="/static/img/logo3.png" alt="Site logo">
-                        TM Connect
-                    </a>
-                    <button type="button" id="nav-toggle" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#mainNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div id="mainNav" class="collapse navbar-collapse tm-bg-white">
-                        <ul class="navbar-nav ml-auto">
-                            <li class="nav-item">
-                                <a class="nav-link active" href='/index' onclick="window.location.href='/index';">Home <span class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href='/index#tm-section-2' onclick="window.location.href='/index#tm-section-2';">Top Destinations</a>
-                            </li>
-                            <li class="nav-item">
-
-                                <a class="nav-link" href='/index#tm-section-3' onclick="window.location.href='/index#tm-section-3';">Recommended Places</a>
-
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href='/index#tm-section-4' onclick="window.location.href='/index#tm-section-4';">Contact Us</a>
-                            </li>
-                            {% if user %}
-                                <li class="nav-item">
-                                  <a class="nav-link" href="/dashboard">Welcome, {{ user.first_name }}</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#" onclick="logoutConfirm(event)">Logout</a>
-                                </li>
-                            {% else %}
-                                <li class="nav-item">
-                                    <a class="nav-link" href='/login' onclick="window.location.href='/login';">Login</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href='/signup' onclick="window.location.href='/signup';">Signup</a>
-                                </li>
-                            {% endif %}
-                        </ul>
-                    </div>
-                </nav>
-            </div> <!-- row -->
-        </div> <!-- container -->
-  </div> <!-- .tm-top-bar -->
+{% include './includes/header.html' %}
   <div class="container mt-4">
     <h2>Welcome to the Dashboard</h2>
 
@@ -99,13 +18,20 @@
         <!-- Button to toggle the "Create a New Post" form -->
         <a href="/trips/create" id="togglePostFormBtn" class="btn btn-primary mt-3">Create a Trip</a>
 
+       <!-- Create a New Post form -->
+    <a href="/trips" id="checkAvailableTripsBtn" class="btn btn-primary mt-3">Check Available Trips</a>
+
+    <!-- Button to check owned trips -->
+    <a href="/trips/owned_trips" class="btn btn-primary mt-3">My Trips</a>
+
+    
         <!-- Form for creating a new post (initially hidden) -->
         <div class="card mt-4" id="postFormCard" style="display: none;">
             <div class="card-header">
                 Create a New Trip
             </div>
             <div class="card-body">
-                <form method="post" enctype="multipart/form-data" action="trips/create">
+                <form method="post" enctype="multipart/form-data" action="/trips/create">
                     <div class="form-group">
                         <label for="title">Title:</label>
                         <input type="text" class="form-control" id="title" name="title" required>
@@ -138,26 +64,4 @@
         <p>Please <a href="/login">login</a> to access the dashboard.</p>
     {% endif %}
 </div>
-
-<!-- JavaScript to toggle the form visibility -->
-<script>
-    $(document).ready(function () {
-        $("#togglePostFormBtn").click(function () {
-            $("#postFormCard").toggle();
-        });
-    });
-  function logoutConfirm(event) {
-      event.preventDefault(); // Prevent the default action of clicking the link
-      if (confirm('Are you sure you want to logout?')) {
-          const form = document.createElement('form');
-          form.method = 'POST';
-          form.action = '/logout';
-
-          document.body.appendChild(form);
-          form.submit();
-      }
-  }
-</script>
-
-</body>
-</html>
+{% include './includes/footer.html' %}
