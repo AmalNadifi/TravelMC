@@ -38,10 +38,10 @@
   </style>          
 </head>
 
-      <body>
-        <div class="tm-main-content" id="top">
-            <div class="tm-top-bar-bg"></div>    
-            <div class="tm-top-bar" id="tm-top-bar">
+          <body>
+          <div class="tm-main-content" id="top">
+              <div class="tm-top-bar-bg"></div>    
+              <div class="tm-top-bar" id="tm-top-bar">
                 <div class="container">
                     <div class="row">
                         <nav class="navbar navbar-expand-lg narbar-light">
@@ -52,35 +52,43 @@
                             <button type="button" id="nav-toggle" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#mainNav" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
-                                  <div id="mainNav" class="collapse navbar-collapse tm-bg-white">
-                                  <ul class="navbar-nav ml-auto">
+                            <div id="mainNav" class="collapse navbar-collapse tm-bg-white">
+                                <ul class="navbar-nav ml-auto">
                                     <li class="nav-item">
-                                    <a class="nav-link active" href='/index' onclick="window.location.href='/index';">Home <span class="sr-only">(current)</span></a>
-                                  </li>
-                                  <li class="nav-item">
-                                      <a class="nav-link" href='/index#tm-section-2' onclick="window.location.href='/index#tm-section-2';">Top Destinations</a>
-                                  </li>
-                                  <li class="nav-item">
+                                        <a class="nav-link active" href='/index' onclick="window.location.href='/index';">Home <span class="sr-only">(current)</span></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href='/index#tm-section-2' onclick="window.location.href='/index#tm-section-2';">Top Destinations</a>
+                                    </li>
+                                    <li class="nav-item">
 
-                                     <a class="nav-link" href='/index#tm-section-3' onclick="window.location.href='/index#tm-section-3';">Recommended Places</a>
+                                        <a class="nav-link" href='/index#tm-section-3' onclick="window.location.href='/index#tm-section-3';">Recommended Places</a>
 
-                                  </li>
-                                  <li class="nav-item">
-                                      <a class="nav-link" href='/index#tm-section-4' onclick="window.location.href='/index#tm-section-4';">Contact Us</a>
-                                  </li>
-                                <li class="nav-item">
-                                  <a class="nav-link" href='/login' onclick="window.location.href='/login';">Login</a>
-                                </li>
-
-                                <li class="nav-item">
-                                  <a class="nav-link" href='/signup' onclick="window.location.href='/signup';">Signup</a>
-                                </li>
-                            </ul>
-                        </div>                            
-                    </nav>
-                </div> <!-- row -->
-            </div> <!-- container -->
-        </div> <!-- .tm-top-bar -->
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href='/index#tm-section-4' onclick="window.location.href='/index#tm-section-4';">Contact Us</a>
+                                    </li>
+                                    {% if user %}
+                                        <li class="nav-item">
+                                          <a class="nav-link" href="/dashboard">Welcome, {{ user.first_name }}</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#" onclick="logoutConfirm(event)">Logout</a>
+                                        </li>
+                                    {% else %}
+                                        <li class="nav-item">
+                                            <a class="nav-link" href='/login' onclick="window.location.href='/login';">Login</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href='/signup' onclick="window.location.href='/signup';">Signup</a>
+                                        </li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+                        </nav>
+                    </div> <!-- row -->
+                </div> <!-- container -->
+          </div> <!-- .tm-top-bar -->
         <div class="tm-page-wrap mx-auto">
           <section class="p-5 tm-container-outer tm-bg-gray">            
               <div class="container">
@@ -125,7 +133,24 @@
                     </footer>
                 </div>
             </div>
+            <script>
+                $(document).ready(function () {
+                    $("#togglePostFormBtn").click(function () {
+                        $("#postFormCard").toggle();
+                    });
+                });
+              function logoutConfirm(event) {
+                  event.preventDefault(); // Prevent the default action of clicking the link
+                  if (confirm('Are you sure you want to logout?')) {
+                      const form = document.createElement('form');
+                      form.method = 'POST';
+                      form.action = '/logout';
 
+                      document.body.appendChild(form);
+                      form.submit();
+                  }
+              }
+            </script>
 
 </body>
 </html>
