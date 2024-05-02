@@ -12,6 +12,7 @@ class User(db.Model):
   email = db.Column(db.String(100), unique=True)
   location = db.Column(db.String(100))
   password = db.Column(db.String(100))
+  image = db.Column(db.String(255))
   # Trips relationship
   trips = db.relationship('Trip', back_populates='user')
 
@@ -21,13 +22,14 @@ class User(db.Model):
                               back_populates='participants')
 
   def __init__(self, first_name, last_name, phone, email, location,
-               password):
+               password, image):
     self.first_name = first_name
     self.last_name = last_name
     self.phone = phone
     self.email = email
     self.location = location
     self.password = bcrypt.generate_password_hash(password).decode('utf-8')
+    self.image = image
 
   def check_password(self, password):
       return bcrypt.check_password_hash(self.password, password)
