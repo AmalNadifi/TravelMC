@@ -1,0 +1,63 @@
+{% include './includes/header.html' %}
+
+        <section class="p-5 tm-container-outer tm-bg-gray">
+            <div class="container">
+              {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                  {% for category, message in messages %}
+                    <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                      {{ message }}
+                    </div>
+                  {% endfor %}
+                {% endif %}
+              {% endwith %}
+                <div class="row">
+                    <div class="col-xs-12 mx-auto tm-about-text-wrap text-center">           
+                        <h2 class="text-uppercase mb-4">Explore Amazing <strong>Trips</strong>.</h2>
+                        <p class="mb-4">Browse through the list of exciting journeys created by fellow travelers.</p>
+                        <!-- Render the list of trips using Jinja2 -->
+                        <div class="album py-5 bg-body-tertiary">
+                            <div class="container">
+                                <div class="row row-cols-1 row-cols-md-3 g-3">
+                                    {% for trip in trips %}
+                                        <div class="col">
+                                            <div class="card shadow-sm">
+                                                <!-- Add your trip image here -->
+                                                <img src="/{{ trip.image }}" alt="{{ trip.destination }}" class="img-fluid">
+
+                                                <!-- Card body containing trip details -->
+                                                  <div class="card-body">
+                                                  <!-- Trip title in a single line -->
+                                                  <h5 class="card-title">{{ trip.destination }}</h5>
+
+                                                  <!-- Departure date in a separate line with strong styling -->
+                                                  <p class="card-text">
+                                                      <strong>Departure date:</strong> {{ trip.start_date }}
+                                                  </p>
+
+                                                  <!-- Return date in a separate line with strong styling -->
+                                                  <p class="card-text">
+                                                      <strong>Return date:</strong> {{ trip.end_date }}
+                                                  </p>
+
+                                                    <!-- Join button -->
+                                              <label for="btnSubmit">&nbsp;</label>
+                                              {% if user in trip.participants %}
+                                              <a class="btn btn-danger tm-btn tm-btn-search text-uppercase" href='/trips/join_trip/{{ trip.id }}'>remove</a>
+                                              {% elif trip.user.id == user.id %}
+                                              <a class="btn btn-secondary tm-btn tm-btn-search text-uppercase" href='#'>Owner</a>
+                                              {% else %}
+                                              <a class="btn btn-primary tm-btn tm-btn-search text-uppercase" href='/trips/join_trip/{{ trip.id }}'>Join</a>
+                                              {% endif %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>            
+        </section>
+{% include './includes/footer.html' %}
