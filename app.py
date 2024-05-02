@@ -43,16 +43,25 @@ def home_page():
 
 @app.route('/continue_reading-eu')
 def cr_eu():
+  if 'email' in session:
+    user = User.query.filter_by(email=session['email']).first()
+    return render_template('continue_reading-eu.html', user=user)
   return render_template('continue_reading-eu.html')
 
 
 @app.route('/continue_reading-as')
 def cr_as():
+  if 'email' in session:
+    user = User.query.filter_by(email=session['email']).first()
+    return render_template('continue_reading-as.html', user=user)
   return render_template('continue_reading-as.html')
 
 
 @app.route('/continue_reading-am')
 def cr_am():
+  if 'email' in session:
+    user = User.query.filter_by(email=session['email']).first()
+    return render_template('continue_reading-am.html', user=user)
   return render_template('continue_reading-am.html')
 
 @app.route('/contact_submit', methods=['POST'])
@@ -77,13 +86,13 @@ def contact_submit():
         'message': message
     })
 
-    
     return redirect(url_for('success'))
 
 @app.route('/success')
 def success():
     # Render a success page or provide a success message
     return render_template('success.html', messages=submitted_messages)
+  
 
 
 app.register_blueprint(trip_controller)
